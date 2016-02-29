@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Home";
+}
+
+<script type="text/javascript">
+    function Conectar() {
+        $.ajax({
+            type: 'GET',
+            dataType: "json",
+            url: 'http://kelvisgama.servicos.ws/Authentication',
+        }).done(function (data) {
+            //$.colorbox({ href: data, data: true, title: "TESTE", iframe: true });
+            document.location = data;
+        }).error(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText || textStatus);
+        });;
+    }
+</script>
+
+<div class="container">
+    <h3>Autenticação do Google</h3>
+
+    <input type="button" class="btn btn-lg btn-danger" value="Entrar com sua conta do Google" onclick="Conectar();" />
+
+</div>

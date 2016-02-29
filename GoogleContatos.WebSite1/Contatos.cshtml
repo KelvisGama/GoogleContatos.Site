@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Contatos";
+
+}
+
+@if (Request.Params.Get("Code") != null && Request.Params.Get("Code") != "")
+{
+
+
+    <script type="text/javascript">
+        $.ajax({
+            type: 'GET',
+            dataType: "json",
+            data: { Code: '@Request.QueryString["Code"]' },
+            url: 'http://kelvisgama.servicos.ws/Contatos',
+
+        }).done(function (data) {
+            $(data).each(function (i) {
+                $('#listaContatos').append("<tr>")
+                $('#listaContatos').append("<th scope='row'>"+i+"</th>")
+                $('#listaContatos').append("<td>" + data[i].Nome + "</td>")
+                $('#listaContatos').append("<td>" + data[i].TelefonePrincial + "</td>")
+                $('#listaContatos').append("<td> " + data[i].Email + "</td>")
+                $('#listaContatos').append("</tr>")
+            });
+        }).error(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText || textStatus);
+        });;
+    </script>
+
+}
+else
+{
+    <script type="text/javascript">
+        alert("Não Autorizado!\nVocê será redirecionado para a página inicial.");
+        document.location = "/"
+    </script>
+}
+
+<div class="container">
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody id="listaContatos"></tbody>
+    </table>
+</div>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Page.Title</title>
+    @*<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />*@
+
+    <link href="~/Content/tether/tether.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script src="~/Scripts/jquery-2.0.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/tether/tether.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/colorbox/jquery.colorbox.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+    <header>
+        <div class="btn-danger" style="min-height:100px;">
+            <br />
+            <div class="col-md-2"></div>
+            <div class="col-md-1">
+                <img class="img-thumbnail" src="~/Images/Google-Contacts.png" alt="Contatos do Google">
+            </div>
+            <div class="col-md-8">
+                <h1 style="font-size:50px;">Contatos do Google</h1>
+            </div>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-10">
+            <br>
+            @RenderBody()
+        </div>
+    </div>
+    <footer></footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
